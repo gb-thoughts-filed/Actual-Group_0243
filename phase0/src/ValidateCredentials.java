@@ -3,7 +3,6 @@ import java.util.Random;
 public class ValidateCredentials {
     private String username;
     private String password;
-    private int tag;
 
     public ValidateCredentials() {
     }
