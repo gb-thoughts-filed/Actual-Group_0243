@@ -3,7 +3,6 @@ import java.util.Map;
 public abstract class CreateUserAccount extends ValidateCredentials{
     private String newUsername;
     private String newPassword;
-    private Map allUsers;
 
     public CreateUserAccount(String newUsername, String newPassword) {
         this.newUsername = newUsername;
@@ -34,6 +33,7 @@ public abstract class CreateUserAccount extends ValidateCredentials{
             user.setUsername(this.newUsername);
             user.setPassword(this.newPassword);
             user.tag = tag.createTag();
+
         }
     }
 }
