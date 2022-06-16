@@ -5,18 +5,17 @@ public abstract class UserAccount extends ValidateCredentials{
     private String username;
     private String password;
 
-    private String name;
+    public int tag;
 
     private boolean admin;
 
     private List<LocalDateTime> loginTimes;
 
-    public UserAccount(String username, String password, String name, boolean admin) {
+    public UserAccount(String username, String password, boolean admin, int tag) {
         this.username = username;
         this.password = password;
-        this.name = name;
         this.admin = admin;
-        List<LocalDateTime> loginTimes = new ArrayList<>();
+        this.tag = tag;
     }
 
     public void setUsername(String username) {
@@ -45,5 +44,9 @@ public abstract class UserAccount extends ValidateCredentials{
     public List<LocalDateTime> loginHistory(LocalDateTime time){
         loginTimes.add(time);
         return loginTimes;
+    }
+
+    public String toString(){
+        return "Welcome " + username +" to you account!";
     }
 }

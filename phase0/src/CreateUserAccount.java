@@ -1,6 +1,6 @@
 import java.util.Map;
 
-public abstract class CreateUserAccount {
+public abstract class CreateUserAccount extends ValidateCredentials{
     private String newUsername;
     private String newPassword;
     private Map allUsers;
@@ -10,31 +10,30 @@ public abstract class CreateUserAccount {
         this.newPassword = newPassword;
     }
 
-    public boolean isValidPassword(String password) {
-        if (password.length() >= 8 && password.length() <= 12) {
-            return true;
-        } else return false;
-    }
 
-    public boolean isValidUsername(String username) {
-        if (!allUsers.containsKey(username)) {
-            return true;
-        } else return false;
-    }
-
-    public void createUsername(String username) {
+    public boolean createUsername(String username) {
         if (isValidUsername(username)) {
             this.newUsername = username;
+            return true;
         }
+        else return false;
     }
 
-    public void createPassword(String password) {
+    public boolean createPassword(String password) {
         if (isValidPassword(password)) {
             this.newPassword = password;
+            return true;
         }
+        else return false;
     }
 
-    public void addToSystem(CreateUserAccount obj) {
-
+    public void createUserAccount() {
+        if (createPassword(this.newPassword) && createUsername(this.newUsername)) {
+            ValidateCredentials tag = null;
+            UserAccount user = null;
+            user.setUsername(this.newUsername);
+            user.setPassword(this.newPassword);
+            user.tag = tag.createTag();
+        }
     }
 }
