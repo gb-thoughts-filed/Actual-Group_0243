@@ -16,9 +16,18 @@ public class CreateUserAccount extends ValidateCredentials{
         this.admin = admin;
     }
 
+    public boolean uniqueUsername(String username){
+        for (UserAccount user: allCreatedUsers){
+            if (user.getUsername().equals(username)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public boolean createUsername(String username) {
-        if (isValidUsername(username)) {
+        if (isValidUsername(username) && uniqueUsername(username)) {
             this.newUsername = username;
             return true;
         }
@@ -35,8 +44,10 @@ public class CreateUserAccount extends ValidateCredentials{
 
     public UserAccount createUserAccount() {
         if (createPassword(this.newPassword) && createUsername(this.newUsername)) {
-            ValidateCredentials tag = new ValidateCredentials();
-            UserAccount user = new UserAccount(this.newUsername, this.newPassword, this.admin, tag.createTag());
+            UserAccount user = new UserAccount("None", "None", false);
+            user.setUsername(this.newUsername);
+            user.setPassword(this.newPassword);
+            user.admin = this.admin;
             allCreatedUsers.add(user);
             return user;
         }

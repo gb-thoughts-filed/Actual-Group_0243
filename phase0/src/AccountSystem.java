@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,17 +9,40 @@ public class AccountSystem {
     public AccountSystem(){
     }
 
-    public boolean addToSystem(CreateUserAccount obj){
+    public UserAccount addToSystem(CreateUserAccount obj){
         if (obj.createUserAccount() == null){
-            return false;
+            return null;
         }
         allUsers.add(obj.createUserAccount());
-        return true;
+        return obj.createUserAccount();
     }
 
-    public boolean logIn(String username, String password){
+    public UserAccount logIn(String username, String password){
         for (UserAccount u: allUsers){
             if (u.getUsername().equals(username) && u.getPassword().equals(password)){
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public UserAccount createUser(String newUsername, String password, boolean admin){
+        CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
+        return addToSystem(newUser);
+    }
+
+    public boolean checkUsername(String username){
+        for (UserAccount user: allUsers) {
+            if (user.getUsername().equals(username)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean checkPassword(String username, String password) {
+        for (UserAccount user: allUsers) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 return true;
             }
         }

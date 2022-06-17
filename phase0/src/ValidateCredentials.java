@@ -1,8 +1,6 @@
 import java.util.Random;
 
 public class ValidateCredentials {
-    private String username;
-    private String password;
 
     public ValidateCredentials() {
     }
@@ -14,7 +12,7 @@ public class ValidateCredentials {
     }
 
     public boolean isValidUsernameLength(String username) {
-        if (password.length() >= 5 && password.length() <= 8) {
+        if (username.length() >= 5 && username.length() <= 8) {
             return true;
         } else return false;
     }
@@ -45,9 +43,5 @@ public class ValidateCredentials {
 
     public boolean isValidUsername(String username) {
         return isValidUsernameLength(username) && isValidUsernameChar(username);
-    }
-    public int createTag(){
-        Random rand = new Random();
-        return rand.ints(4).hashCode();
     }
 }
