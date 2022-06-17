@@ -36,11 +36,7 @@ public class CreateUserAccount extends ValidateCredentials{
     public UserAccount createUserAccount() {
         if (createPassword(this.newPassword) && createUsername(this.newUsername)) {
             ValidateCredentials tag = new ValidateCredentials();
-            UserAccount user = new UserAccount("None", "None", false, 0);
-            user.setUsername(this.newUsername);
-            user.setPassword(this.newPassword);
-            user.admin = this.admin;
-            user.tag = tag.createTag();
+            UserAccount user = new UserAccount(this.newUsername, this.newPassword, this.admin, tag.createTag());
             allCreatedUsers.add(user);
             return user;
         }

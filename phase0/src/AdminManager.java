@@ -31,6 +31,7 @@ public class AdminManager extends AccountSystem{
         for (UserAccount user: bannedAccounts.keySet()) {
             if (user.getUsername().equals(username) && LocalDateTime.now().isAfter(banLength)) {
                 system.allUsers.add(user);
+                bannedAccounts.remove(user);
             }
         }
     }
