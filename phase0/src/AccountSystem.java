@@ -6,39 +6,42 @@ public class AccountSystem {
 
     protected List<UserAccount> allUsers;
 
-    public AccountSystem(){
+    public AccountSystem() {
+        allUsers = new ArrayList<>();
     }
 
-    public UserAccount addToSystem(CreateUserAccount obj){
-        if (obj.createUserAccount() == null){
+    public UserAccount addToSystem(CreateUserAccount obj) {
+        if (obj.createUserAccount() == null) {
             return null;
         }
         allUsers.add(obj.createUserAccount());
         return obj.createUserAccount();
     }
 
-    public UserAccount logIn(String username, String password){
-        for (UserAccount u: allUsers){
-            if (u.getUsername().equals(username) && u.getPassword().equals(password)){
+    public UserAccount logIn(String username, String password) {
+        for (UserAccount u : allUsers) {
+            if (u.getUsername().equals(username) && u.getPassword().equals(password)) {
                 return u;
             }
         }
         return null;
     }
 
-    public UserAccount createUser(String newUsername, String password, boolean admin){
+    public UserAccount createUser(String newUsername, String password, boolean admin) {
         CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
+        newUser.createUserAccount();
         return addToSystem(newUser);
     }
 
-    public boolean checkUsername(String username){
-        for (UserAccount user: allUsers) {
-            if (user.getUsername().equals(username)) {
-                return true;
+    public boolean checkUsername(String username) {
+        for (UserAccount user : allUsers) {
+                if (user.getUsername().equals(username)) {
+                    return true;
+                }
             }
-        }
         return false;
     }
+
 
     public boolean checkPassword(String username, String password) {
         for (UserAccount user: allUsers) {

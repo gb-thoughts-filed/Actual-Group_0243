@@ -20,8 +20,10 @@ public class ValidateCredentials {
     public boolean isValidPasswordChar(String password) {
         char[] passList = password.toCharArray();
         for (char p: passList) {
-            if (!Character.isLetter(p) || !Character.isDigit(p)) {
-                return false;
+            if (!Character.isLetter(p)) {
+                if (!Character.isDigit(p)) {
+                    return false;
+                }
             }
         }
         return true;
@@ -30,8 +32,10 @@ public class ValidateCredentials {
     public boolean isValidUsernameChar(String username) {
         char[] userList = username.toCharArray();
         for (char u : userList) {
-            if (!Character.isLetter(u) || !Character.isDigit(u)) {
-                return false;
+            if (!Character.isLetter(u)) {
+                if (!Character.isDigit(u)) {
+                    return false;
+                }
             }
         }
         return true;
