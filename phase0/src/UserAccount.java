@@ -1,21 +1,18 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
-public class UserAccount extends ValidateCredentials{
+public class UserAccount{
     private String username;
     private String password;
-
-    protected int tag;
 
     protected boolean admin;
 
     private List<LocalDateTime> loginTimes;
 
-    public UserAccount(String username, String password, boolean admin, int tag) {
+    public UserAccount(String username, String password, boolean admin) {
         this.username = username;
         this.password = password;
         this.admin = admin;
-        this.tag = tag;
     }
 
     public void setUsername(String username) {
