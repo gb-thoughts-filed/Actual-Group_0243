@@ -14,6 +14,7 @@ public class CreateUserAccount extends ValidateCredentials{
         this.newUsername = newUsername;
         this.newPassword = newPassword;
         this.admin = admin;
+        this.allCreatedUsers = new ArrayList<>();
     }
 
     public boolean uniqueUsername(String username){
@@ -24,7 +25,6 @@ public class CreateUserAccount extends ValidateCredentials{
         }
         return true;
     }
-
 
     public boolean createUsername(String username) {
         if (isValidUsername(username) && uniqueUsername(username)) {

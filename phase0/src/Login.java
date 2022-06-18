@@ -17,12 +17,13 @@ public class Login {
                     if (cred.isValidPassword(newPassword)) {
                         System.out.println("Type ADMIN to make administrator account or NO for non-admin account.");
                         String admin = myObj.nextLine();
-                        if (admin.equals("NEW")) {
-                            AccountSystem system = new AccountSystem();
+                        AccountSystem system = new AccountSystem();
+                        if (admin.equals("ADMIN")) {
                             system.createUser(newUsername, newPassword, true);
-                            System.out.println(system.createUser(newUsername, newPassword, true).toString());
+                            UserAccount users = system.createUser(newUsername, newPassword, true);
+                            System.out.println(users.toString());
+                            break;
                         } else {
-                            AccountSystem system = new AccountSystem();
                             system.createUser(newUsername, newPassword, false);
                             UserAccount users = system.createUser(newUsername, newPassword, false);
                             System.out.println(users.toString());

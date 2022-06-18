@@ -11,11 +11,12 @@ public class AccountSystem {
     }
 
     public UserAccount addToSystem(CreateUserAccount obj) {
-        if (obj.createUserAccount() == null) {
+        UserAccount user = obj.createUserAccount();
+        if (user == null) {
             return null;
         }
-        allUsers.add(obj.createUserAccount());
-        return obj.createUserAccount();
+        allUsers.add(user);
+        return user;
     }
 
     public UserAccount logIn(String username, String password) {
