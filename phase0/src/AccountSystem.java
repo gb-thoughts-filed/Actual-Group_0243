@@ -16,6 +16,7 @@ public class AccountSystem {
             return null;
         }
         allUsers.add(user);
+        obj.allCreatedUsers.remove(user);
         return user;
     }
 
@@ -30,6 +31,7 @@ public class AccountSystem {
 
     public UserAccount createUser(String newUsername, String password, boolean admin) {
         CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
+        addToSystem(newUser);
         return newUser.createUserAccount();
     }
 
