@@ -13,6 +13,7 @@ public class UserAccount{
         this.username = username;
         this.password = password;
         this.admin = admin;
+        List<LocalDateTime> loginTimes = new ArrayList<>();
     }
 
     public void setUsername(String username) {
