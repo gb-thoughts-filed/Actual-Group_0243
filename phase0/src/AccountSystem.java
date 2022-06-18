@@ -30,8 +30,7 @@ public class AccountSystem {
 
     public UserAccount createUser(String newUsername, String password, boolean admin) {
         CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
-        newUser.createUserAccount();
-        return addToSystem(newUser);
+        return newUser.createUserAccount();
     }
 
     public boolean checkUsername(String username) {
