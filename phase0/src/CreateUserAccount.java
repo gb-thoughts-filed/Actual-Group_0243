@@ -7,14 +7,13 @@ public class CreateUserAccount extends ValidateCredentials{
 
     protected boolean admin;
 
-    protected static List<UserAccount> allCreatedUsers;
+    protected static List<UserAccount> allCreatedUsers  = new ArrayList<>();
 
 
     public CreateUserAccount(String newUsername, String newPassword, boolean admin) {
         this.newUsername = newUsername;
         this.newPassword = newPassword;
         this.admin = admin;
-        allCreatedUsers = new ArrayList<>();
     }
 
     public boolean uniqueUsername(String username){
