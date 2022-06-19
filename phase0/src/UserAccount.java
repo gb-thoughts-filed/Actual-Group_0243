@@ -23,8 +23,8 @@ public class UserAccount{
         return this.username;
     }
 
-    public void setPassword(String name) {
-        this.password = name;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPassword() {
