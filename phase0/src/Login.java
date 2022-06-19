@@ -6,11 +6,9 @@ public class Login {
         Scanner myObj = new Scanner(System.in); // create scanner object
         ValidateCredentials cred = new ValidateCredentials();
         AccountSystem system = new AccountSystem();
-        CreateUserAccount created = new CreateUserAccount("None", "None", false);
         System.out.println("------ Welcome ------");
-        System.out.println("If you are new, please type NEW. If you would like to exit, please type EXIT");
+        System.out.println("If you are new, please type NEW. If you are logging in, enter your username. Otherwise, please type EXIT to leave.");
         while (true) {
-            System.out.println("Enter username");
             String user = myObj.nextLine(); //read user input
             if (user.equals("NEW")) {
                 System.out.println("Enter username of length between 5 and 8 inclusive. No special symbols.");
