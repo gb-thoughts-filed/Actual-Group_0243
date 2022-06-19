@@ -7,15 +7,17 @@ public class Login {
         ValidateCredentials cred = new ValidateCredentials();
         AccountSystem system = new AccountSystem();
         CreateUserAccount created = new CreateUserAccount("None", "None", false);
+        System.out.println("------ Welcome ------");
+        System.out.println("If you are new, please type NEW. If you would like to exit, please type EXIT");
         while (true) {
-            System.out.println("Type NEW to create user or RETURN to log in.");
+            System.out.println("Enter username");
             String user = myObj.nextLine(); //read user input
             if (user.equals("NEW")) {
                 System.out.println("Enter username of length between 5 and 8 inclusive. No special symbols.");
                 String newUsername = myObj.nextLine();
                 if (system.checkUsername(newUsername)) {
                     System.out.println("Please try a new username. Username taken.");
-                    break;
+                    continue;
                 }
                 if (cred.isValidUsername(newUsername)) {
                     System.out.println("Enter password of length between 8 and 12 inclusive. Non special symbols.");
@@ -24,24 +26,22 @@ public class Login {
                         System.out.println("Type ADMIN to make administrator account or NO for non-admin account.");
                         String admin = myObj.nextLine();
                         if (admin.equals("ADMIN")) {
-                            UserAccount users = system.createUser(newUsername, newPassword, true);
-                            System.out.println(users.toString());
-                            //break;
-
+                            system.createUser(newUsername, newPassword, true);
                         } else {
-                            UserAccount users = system.createUser(newUsername, newPassword, false);
-                            System.out.println(users.toString());
+                            system.createUser(newUsername, newPassword, false);
                         }
+                        System.out.println("Account '" + newUsername + "' created");
                     } else System.out.println("Invalid password");
                 } else System.out.println("Invalid username. Letters and numbers only. No symbols.");
+            } else if (user.equals("EXIT")) {
+                break;
             } else {
-                System.out.println("Enter username");
-                String username = myObj.nextLine();
-                if (system.checkUsername(username)) {
+                if (system.checkUsername(user)) {
                     System.out.println("Enter password");
                     String password = myObj.nextLine();
-                    if (system.checkPassword(username, password)) {
-                        System.out.println(system.logIn(username, password).loginHistory(LocalDateTime.now()));
+                    if (system.checkPassword(user, password)) {
+                        System.out.println(system.logIn(user, password).toString());
+                        System.out.println(user + "'s login times: " + system.logIn(user, password).loginHistory(LocalDateTime.now()));
                     } else System.out.println("Password does not match");
                 } else System.out.println("Username not found");
             }

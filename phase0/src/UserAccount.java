@@ -44,6 +44,6 @@ public class UserAccount{
     }
 
     public String toString(){
-        return "Welcome " + username +" to your account!";
+        return "Welcome to your account " + username;
     }
 }
