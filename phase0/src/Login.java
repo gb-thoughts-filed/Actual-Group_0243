@@ -23,11 +23,7 @@ public class Login {
                     if (cred.isValidPassword(newPassword)) {
                         System.out.println("Type ADMIN to make administrator account or NO for non-admin account.");
                         String admin = myObj.nextLine();
-                        if (admin.equals("ADMIN")) {
-                            system.createUser(newUsername, newPassword, true);
-                        } else {
-                            system.createUser(newUsername, newPassword, false);
-                        }
+                        system.createUser(newUsername, newPassword, admin.equals("ADMIN"));
                         System.out.println("Account '" + newUsername + "' created");
                     } else System.out.println("Invalid password");
                 } else System.out.println("Invalid username. Letters and numbers only. No symbols.");
