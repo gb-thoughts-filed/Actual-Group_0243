@@ -2,9 +2,11 @@ import java.time.LocalDateTime;
 import java.util.Map;
 public class AdminManager extends AccountSystem{
 
-    private Map<UserAccount, LocalDateTime> bannedAccounts;
+    private final Map<UserAccount, LocalDateTime> bannedAccounts;
 
-    public AdminManager(){}
+    public AdminManager(Map<UserAccount, LocalDateTime> bannedAccounts){
+        this.bannedAccounts = bannedAccounts;
+    }
 
     public void promoteAdminUser(String username) {
         AccountSystem system = new AccountSystem();
@@ -38,11 +40,7 @@ public class AdminManager extends AccountSystem{
 
     public void deleteUser(String username){
         AccountSystem system = new AccountSystem();
-        for (UserAccount user: system.allUsers) {
-            if(user.getUsername().equals(username)) {
-                system.allUsers.remove(user);
-            }
-        }
+        system.allUsers.removeIf(user -> user.getUsername().equals(username));
     }
 
     public void createNewAdmin(String username, String password){
