@@ -1,20 +1,14 @@
-import java.util.Random;
-
 public class ValidateCredentials {
 
     public ValidateCredentials() {
     }
 
     public boolean isValidPasswordLength(String password) {
-        if (password.length() >= 8 && password.length() <= 12) {
-            return true;
-        } else return false;
+        return password.length() >= 8 && password.length() <= 12;
     }
 
     public boolean isValidUsernameLength(String username) {
-        if (username.length() >= 5 && username.length() <= 8) {
-            return true;
-        } else return false;
+        return username.length() >= 5 && username.length() <= 8;
     }
 
     public boolean isValidPasswordChar(String password) {
