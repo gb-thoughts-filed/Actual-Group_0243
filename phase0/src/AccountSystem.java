@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +17,13 @@ public class AccountSystem {
         return null;
     }
 
-    public UserAccount createUser(String newUsername, String password, boolean admin) {
+    public void createUser(String newUsername, String password, boolean admin) {
         CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
         UserAccount user = newUser.createUserAccount();
         if (user == null) {
-            return null;
+            return;
         }
         allUsers.add(user);
-        return user;
     }
 
     public boolean checkUsername(String username) {
