@@ -7,7 +7,7 @@ public class UserAccount{
 
     protected boolean admin;
 
-    private List<LocalDateTime> loginTimes = new ArrayList<>();
+    private final List<LocalDateTime> loginTimes = new ArrayList<>();
 
     public UserAccount(String username, String password, boolean admin) {
         this.username = username;
