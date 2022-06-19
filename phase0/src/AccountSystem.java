@@ -4,20 +4,9 @@ import java.util.List;
 
 public class AccountSystem {
 
-    protected List<UserAccount> allUsers;
+    protected List<UserAccount> allUsers = new ArrayList<>();
 
     public AccountSystem() {
-        allUsers = new ArrayList<>();
-    }
-
-    public UserAccount addToSystem(CreateUserAccount obj) {
-        UserAccount user = obj.createUserAccount();
-        if (user == null) {
-            return null;
-        }
-        allUsers.add(user);
-        obj.allCreatedUsers.remove(user);
-        return user;
     }
 
     public UserAccount logIn(String username, String password) {
@@ -31,8 +20,12 @@ public class AccountSystem {
 
     public UserAccount createUser(String newUsername, String password, boolean admin) {
         CreateUserAccount newUser = new CreateUserAccount(newUsername, password, admin);
-        addToSystem(newUser);
-        return newUser.createUserAccount();
+        UserAccount user = newUser.createUserAccount();
+        if (user == null) {
+            return null;
+        }
+        allUsers.add(user);
+        return user;
     }
 
     public boolean checkUsername(String username) {

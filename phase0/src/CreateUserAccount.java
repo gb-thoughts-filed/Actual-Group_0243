@@ -26,7 +26,7 @@ public class CreateUserAccount extends ValidateCredentials{
     }
 
     public boolean createUsername(String username) {
-        if (isValidUsername(username) && uniqueUsername(username)) {
+        if (isValidUsername(username) || uniqueUsername(username)) {
             this.newUsername = username;
             return true;
         }
