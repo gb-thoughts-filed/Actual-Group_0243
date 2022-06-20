@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 public class AdminManager extends AccountSystem{
 
@@ -19,12 +20,17 @@ public class AdminManager extends AccountSystem{
     }
 
     public void temporaryBan(String username, LocalDateTime banLength) {
+        UserAccount userToBan = null;
         for (UserAccount user: AccountSystem.allUsers) {
-            if(user.getUsername().equals(username)) {
-                AccountSystem.allUsers.remove(user);
-                bannedAccounts.put(user, banLength);
+            if (user.getUsername().equals(username)) {
+                userToBan = user;
             }
         }
+        if (userToBan == null) {
+            return;
+        }
+        AccountSystem.allUsers.remove(userToBan);
+        bannedAccounts.put(userToBan, banLength);
     }
 
     public void unbanAccount(String username, LocalDateTime banLength) {
