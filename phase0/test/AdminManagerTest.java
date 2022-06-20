@@ -28,7 +28,7 @@ public class AdminManagerTest {
         assertTrue(user.getStatus());
     }
 
-    @Test(timeout = 50)
+    @Test(timeout = 1000)
     public void testDeleteUserValidUsername() {
         AdminManager manager = new AdminManager(Collections.emptyMap());
         AccountSystem system = new AccountSystem();
