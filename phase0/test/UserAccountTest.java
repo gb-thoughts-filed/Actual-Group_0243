@@ -1,4 +1,8 @@
 import org.junit.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import static org.junit.Assert.*;
 
 public class UserAccountTest {
@@ -17,5 +21,11 @@ public class UserAccountTest {
         assertEquals("myNewPass123", firstUser.getPassword());
     }
 
-
+    @Test(timeout = 50)
+    public void testLoginHistory() {
+        UserAccount user = new UserAccount("Mary17", "123456789", false);
+        user.loginHistory(LocalDateTime.of(2021, 8, 29, 12, 7, 30));
+        user.loginHistory(LocalDateTime.now());
+        assertEquals(2, user.getLoginHistory().size());
+    }
 }

@@ -26,13 +26,13 @@ public class CreateUserAccountTest {
 
     @Test(timeout = 50)
     public void testCreateUserAccountMethodValidInput() {
-        CreateUserAccount firstUser = new CreateUserAccount("Anne123", "351207M12",
+        CreateUserAccount firstUser = new CreateUserAccount("Jane24", "251207M12",
                 false);
         Object newUser = firstUser.createUserAccount();
         assertNotNull(newUser);
         UserAccount user = (UserAccount) newUser;
-        assertEquals("Anne123", user.getUsername());
-        assertEquals("351207M12", user.getPassword());
+        assertEquals("Jane24", user.getUsername());
+        assertEquals("251207M12", user.getPassword());
     }
 
     @Test(timeout = 50)

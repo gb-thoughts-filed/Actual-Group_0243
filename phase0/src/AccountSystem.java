@@ -3,7 +3,7 @@ import java.util.List;
 
 public class AccountSystem {
 
-    protected List<UserAccount> allUsers = new ArrayList<>();
+    protected static List<UserAccount> allUsers = new ArrayList<>();
 
     public AccountSystem() {
     }

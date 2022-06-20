@@ -31,6 +31,7 @@ public class UserAccount{
         return this.password;
     }
 
+    public boolean getStatus() { return this.admin; }
 
     public String changePassword(String newPassword) {
         String oldPassword = this.password;
@@ -38,10 +39,12 @@ public class UserAccount{
         return oldPassword;
     }
 
-    public List<LocalDateTime> loginHistory(LocalDateTime time){
+    public List<LocalDateTime> loginHistory(LocalDateTime time) {
         loginTimes.add(time);
         return loginTimes;
     }
+
+    public List<LocalDateTime> getLoginHistory() { return loginTimes; }
 
     public String toString(){
         return "Welcome to your account " + username;
