@@ -1,8 +1,5 @@
 import org.junit.*;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-
 import static org.junit.Assert.*;
 
 public class UserAccountTest {
@@ -45,5 +42,12 @@ public class UserAccountTest {
     public void testGetUsername() {
         UserAccount firstUser = new UserAccount("newUser", "123456789", false);
         assertEquals("newUser", firstUser.getUsername());
+    }
+
+    @Test(timeout = 50)
+    public void testSetUsername() {
+        UserAccount user = new UserAccount("newUser", "123456789", false);
+        user.setUsername("Mary27");
+        assertEquals("Mary27", user.getUsername());
     }
 }

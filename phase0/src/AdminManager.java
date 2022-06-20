@@ -8,7 +8,6 @@ public class AdminManager extends AccountSystem{
     private final static Map<UserAccount, LocalDateTime> bannedAccounts = new HashMap<>();
 
     public void promoteAdminUser(String username) {
-        AccountSystem system = new AccountSystem();
         for (UserAccount user: AccountSystem.allUsers) {
             if(user.getUsername().equals(username)) {
                 user.admin = true;

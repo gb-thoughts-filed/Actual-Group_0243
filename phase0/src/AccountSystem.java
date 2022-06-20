@@ -35,7 +35,6 @@ public class AccountSystem {
         return false;
     }
 
-
     public boolean checkPassword(String username, String password) {
         for (UserAccount user: allUsers) {
             if (user.getUsername().equals(username) && user.getPassword().equals(password)) {

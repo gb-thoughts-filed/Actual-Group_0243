@@ -1,7 +1,5 @@
 import org.junit.*;
 
-import java.util.Objects;
-
 import static org.junit.Assert.*;
 
 public class AccountSystemTest {
@@ -18,8 +16,8 @@ public class AccountSystemTest {
     @Test(timeout = 50)
     public void testLogIn() {
         AccountSystem newSystem = new AccountSystem();
-        CreateUserAccount newUser = new CreateUserAccount("John", "123456789", false);
-        assertNotEquals(newSystem.logIn("John", "123456789"), newUser);
+        newSystem.createUser("John24", "123456789", false);
+        assertEquals("John24", newSystem.logIn("John24", "123456789").getUsername());
     }
 
     @Test(timeout = 50)
