@@ -10,8 +10,8 @@ public class ValidateCredentialsTest extends ValidateCredentials{
 
     @Test(timeout = 50)
     public void testisValidUserNameLength() {
-        String userName = "kid";
-        assertFalse(isValidPasswordLength(userName));
+        String userName = "kiddie";
+        assertTrue(isValidPasswordLength(userName));
     }
 
     @Test(timeout = 50)
