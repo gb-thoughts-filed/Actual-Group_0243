@@ -64,9 +64,5 @@ public class AdminManagerTest {
         manager.unbanAccount("John12",LocalDateTime.of(2022, 8, 19, 17,
                 15));
         assertNull(system.logIn("John12", "123456789"));
-
     }
-
-
-
 }
