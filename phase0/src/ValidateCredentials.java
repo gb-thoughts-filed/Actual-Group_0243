@@ -40,6 +40,7 @@ public class ValidateCredentials {
     }
 
     public boolean isValidUsername(String username) {
-        return isValidUsernameLength(username) && isValidUsernameChar(username);
+        CreateUserAccount obj = new CreateUserAccount(username, "None", false);
+        return isValidUsernameLength(username) && isValidUsernameChar(username) && obj.uniqueUsername(username);
     }
 }
