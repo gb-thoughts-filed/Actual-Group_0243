@@ -1,1 +1,0 @@
-![img.png](Login System CRC Model.png)
