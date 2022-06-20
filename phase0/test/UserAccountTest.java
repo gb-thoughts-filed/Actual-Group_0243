@@ -28,4 +28,22 @@ public class UserAccountTest {
         user.loginHistory(LocalDateTime.now());
         assertEquals(2, user.getLoginHistory().size());
     }
+
+    @Test(timeout = 50)
+    public void testGetPassword() {
+        UserAccount firstUser = new UserAccount("newUser", "123456789", false);
+        assertEquals("123456789", firstUser.getPassword());
+    }
+
+    @Test(timeout = 50)
+    public void testGetStatus() {
+        UserAccount firstUser = new UserAccount("newUser", "123456789", false);
+        assertFalse(firstUser.getStatus());
+    }
+
+    @Test(timeout = 50)
+    public void testGetUsername() {
+        UserAccount firstUser = new UserAccount("newUser", "123456789", false);
+        assertEquals("newUser", firstUser.getUsername());
+    }
 }
