@@ -2,6 +2,8 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -38,7 +40,7 @@ public class AdminManagerTest {
 
     @Test(timeout = 50)
     public void testTemporaryBan() {
-        AdminManager manager = new AdminManager(Collections.emptyMap());
+        AdminManager manager = new AdminManager(new HashMap<>());
         AccountSystem system = new AccountSystem();
         system.createUser("John12", "123456789", false);
         manager.temporaryBan("John12", LocalDateTime.of(2022, 8, 19, 17,
