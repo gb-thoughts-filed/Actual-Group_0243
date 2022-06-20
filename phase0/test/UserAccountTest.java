@@ -21,7 +21,7 @@ public class UserAccountTest {
         assertEquals("myNewPass123", firstUser.getPassword());
     }
 
-    @Test(timeout = 50)
+    @Test(timeout = 1000)
     public void testLoginHistory() {
         UserAccount user = new UserAccount("Mary17", "123456789", false);
         user.loginHistory(LocalDateTime.of(2021, 8, 29, 12, 7, 30));
