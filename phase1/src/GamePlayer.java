@@ -7,8 +7,11 @@ public class GamePlayer{
     private String name;
     private final Point location;
 
+    private boolean deadEnd;
+
     public GamePlayer(String name){
         this.totalScore = 0;
+        deadEnd = false;
         // this.name = username from account
         location = new Point(0, 0);
 
@@ -24,6 +27,10 @@ public class GamePlayer{
 
     public void setLocation(double xPos, double yPos){
         this.location.setLocation(xPos, yPos);
+    }
+
+    public boolean isDead(){
+        return this.deadEnd;
     }
 
     public List<Double> getLocation(){
@@ -44,6 +51,10 @@ public class GamePlayer{
     public void moveDown(){
         double newLocation = location.getY() - 2.0;
         location.move(location.x, (int) newLocation);
+    }
+
+    public String toString(){
+        return "GAME OVER";
     }
 
 
