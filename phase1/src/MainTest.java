@@ -22,5 +22,8 @@ public class MainTest extends Point {
         sorted.putAll(scoreMap);
 
         System.out.println(sorted);
+
+        Dimension d = new Dimension(3, 4);
+        System.out.println(d.toString());
     }
 }
