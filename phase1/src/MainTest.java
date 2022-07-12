@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Main extends Point {
+public class MainTest extends Point {
     public static void main(String[] args) {
         Point mark = new Point();
         mark.x = 0;
