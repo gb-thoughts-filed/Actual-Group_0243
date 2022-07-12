@@ -11,21 +11,9 @@ public class ValidateCredentials {
         return username.length() >= 5 && username.length() <= 8;
     }
 
-    public boolean isValidPasswordChar(String password) {
-        char[] passList = password.toCharArray();
-        for (char p: passList) {
-            if (!Character.isLetter(p)) {
-                if (!Character.isDigit(p)) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public boolean isValidUsernameChar(String username) {
-        char[] userList = username.toCharArray();
-        for (char u : userList) {
+    public boolean isValidSequenceChar(String sequence) {
+        char[] charList = sequence.toCharArray();
+        for (char u : charList) {
             if (!Character.isLetter(u)) {
                 if (!Character.isDigit(u)) {
                     return false;
@@ -36,11 +24,11 @@ public class ValidateCredentials {
     }
 
     public boolean isValidPassword(String password) {
-        return isValidPasswordChar(password) && isValidPasswordLength(password);
+        return isValidSequenceChar(password) && isValidPasswordLength(password);
     }
 
     public boolean isValidUsername(String username) {
         CreateUserAccount obj = new CreateUserAccount(username, "None", false);
-        return isValidUsernameLength(username) && isValidUsernameChar(username) && obj.uniqueUsername(username);
+        return isValidUsernameLength(username) && isValidSequenceChar(username) && obj.uniqueUsername(username);
     }
 }

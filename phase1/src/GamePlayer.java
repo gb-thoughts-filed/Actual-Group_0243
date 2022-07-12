@@ -5,7 +5,7 @@ import java.util.List;
 public class GamePlayer{
     private int totalScore;
     private String name;
-    private final Point location;
+    private Point location;
 
     private boolean deadEnd;
 
