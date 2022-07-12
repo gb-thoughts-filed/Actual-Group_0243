@@ -15,26 +15,26 @@ public class ValidateCredentialsTest extends ValidateCredentials{
     }
 
     @Test(timeout = 50)
-    public void testisValidPasswordCharInvalid() {
+    public void testisValidSequenceCharInvalid() {
         String password = "12@45!";
-        assertFalse(isValidPasswordChar(password));
+        assertFalse(isValidSequenceChar(password));
     }
 
     @Test(timeout = 50)
-    public void testisValidPasswordChar() {
+    public void testisValidSequenceChar() {
         String password = "q1w2e3";
-        assertTrue(isValidPasswordChar(password));
+        assertTrue(isValidSequenceChar(password));
     }
 
     @Test(timeout = 50)
-    public void testIsValidUsernameCharInvalid() {
-        String username = "1@newme";
-        assertFalse(isValidUsernameChar(username));
+    public void testIsValidSequenceCharInvalid() {
+        String username = "t@newme";
+        assertFalse(isValidSequenceChar(username));
     }
 
     @Test(timeout = 50)
     public void testIsValidUsernameChar() {
         String username = "4Mary5";
-        assertTrue(isValidUsernameChar(username));
+        assertTrue(isValidSequenceChar(username));
     }
 }

@@ -10,7 +10,10 @@ public class AdminManager extends AccountSystem{
     public void promoteAdminUser(String username) {
         for (UserAccount user: AccountSystem.allUsers) {
             if(user.getUsername().equals(username)) {
-                user.admin = true;
+                String password = user.getPassword();
+                deleteUser(username);
+                CreateUserAccount admin = new CreateUserAccount(username, password, true);
+                admin.createUserAccount();
             }
         }
     }
