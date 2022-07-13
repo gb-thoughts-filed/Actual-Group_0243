@@ -32,15 +32,4 @@ public class Stopwatch extends GameManager{
     }
 
 
-    public long getElapsedMinutes() {
-        long elapsedTime;
-        if (stopWatchRunning)
-            elapsedTime = (System.nanoTime() - stopWatchStartTime);
-        else
-            elapsedTime = (stopWatchStopTime - stopWatchStartTime);
-
-        long nanoSecondsPerMinute = 60000000000L;
-        return elapsedTime / nanoSecondsPerMinute;
-    }
-
 }
