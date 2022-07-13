@@ -3,26 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer{
-    private int totalScore;
     private String name;
     private Point location;
 
     private boolean deadEnd;
 
     public GamePlayer(String name){
-        this.totalScore = 0;
         deadEnd = false;
         // this.name = username from account
         location = new Point(0, 0);
 
-    }
-
-    public void setTotalScore(int score){
-        this.totalScore = score;
-    }
-
-    public int getTotoalScore(){
-        return this.totalScore;
     }
 
     public void setLocation(double xPos, double yPos){
