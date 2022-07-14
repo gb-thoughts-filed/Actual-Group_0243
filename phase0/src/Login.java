@@ -11,7 +11,8 @@ public class Login {
 
         while (command.isRunning()) {
             String userInput = myObj.nextLine();
-            System.out.println(userInput);
+            System.out.println(command.inputCheck(userInput));
         }
+        System.out.println("Exited");
     }
 }
