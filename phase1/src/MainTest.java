@@ -15,6 +15,19 @@ public class MainTest extends Point {
         Dimension d = new Dimension(3, 4);
         System.out.println(d.toString());
 
+        HashMap<String, Integer> scoreMap = new HashMap<String, Integer>();
+        IntegerComparator n = new IntegerComparator(scoreMap);
+        TreeMap<String, Integer> sorted_map = new TreeMap<String, Integer>(n);
+
+        scoreMap.put("A", 995);
+        scoreMap.put("B", 609);
+        scoreMap.put("C", 6);
+        scoreMap.put("D", 66);
+
+        System.out.println("unsorted map: " + scoreMap);
+        sorted_map.putAll(scoreMap);
+        System.out.println("results: " + sorted_map);
+
         Stopwatch stopwatch1 = new Stopwatch();
         stopwatch1.start();
         stopwatch1.stop();
