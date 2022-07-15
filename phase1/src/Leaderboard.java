@@ -1,39 +1,28 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class Leaderboard {
-    private Map<String, Integer> scoreMap;
+    private ArrayList<GamePlayer> scoreboard;
 
-    public Leaderboard(){
-        scoreMap = new HashMap<>();
+    public Leaderboard() {
+        scoreboard = new ArrayList<GamePlayer>();
     }
 
-    public void setScoreMap(String username, int score){
-        IntegerComparator n = new IntegerComparator(scoreMap);
-        TreeMap<String, Integer> sorted = new TreeMap<String, Integer>(n);
-        this.scoreMap = sorted;
-
+    public void resetLeaderboard() {
+        scoreboard.clear();
     }
 
-    public Map<String, Integer> getAllTimeScores(){
-        IntegerComparator n = new IntegerComparator(scoreMap);
-        TreeMap<String, Integer> sorted = new TreeMap<String, Integer>(n);
-        return sorted;
-    }
-
-    public void addNewScore(String username, int score){
-        scoreMap.put(username, score);
-        new IntegerComparator(scoreMap);
-    }
-
-    public boolean updateExistingScore(String username, int score){
-        if (!scoreMap.containsKey(username)){
+    public boolean addToScoreBoard(GamePlayer player) {
+        if (scoreboard.contains(player)) {
             return false;
+        } else {
+            scoreboard.add(player);
+            return true;
         }
-        scoreMap.replace(username, scoreMap.get(username), score);
-        return true;
     }
 
-
-
+    public void refreshScoreBoard() {
+        Collections.sort(scoreboard);
+    }
 }
-

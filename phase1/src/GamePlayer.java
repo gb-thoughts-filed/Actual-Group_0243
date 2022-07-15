@@ -2,11 +2,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GamePlayer{
+public class GamePlayer implements Comparable<GamePlayer> {
     private String name;
     private Point location;
 
     private boolean deadEnd;
+
+    public int highestScore = 0;
 
     public GamePlayer(String name){
         deadEnd = false;
@@ -47,5 +49,13 @@ public class GamePlayer{
         return "GAME OVER";
     }
 
+    public void updateHighestScore(int newScore){
+        if (newScore > highestScore) {
+            highestScore = newScore;
+        }
+    }
 
+    public int compareTo(GamePlayer player2){
+        return player2.highestScore - this.highestScore;
+    }
 }
