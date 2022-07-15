@@ -9,6 +9,7 @@ public class GameManager{
     int score;
     public GameManager(){
         // player = new GamePlayer(UserAccount username here)
+        score = 0;
     }
 
     public void startGame(){
