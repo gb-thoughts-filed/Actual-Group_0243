@@ -30,13 +30,16 @@ public class Gameboard {
                 return playerPosition.get(1) <= blank && playerPosition.get(1) + 10 >= blank + 40;
             } else { return false; }
         }
+        return false;
+    }
 
-
+    public boolean isTouchingBottom() {
+        List<Double> playerPosition = player.getLocation();
+        return playerPosition.get(1) < 0;
     }
 
     public void addObstacles() {
-
-
+        obstacleList.add(randomizeObstacle());
     }
 
     /*
