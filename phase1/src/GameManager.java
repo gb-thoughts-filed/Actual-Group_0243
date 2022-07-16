@@ -24,14 +24,6 @@ public class GameManager{
         // Leaderboard scoreBoard = new Leaderboard();
         // scoreboard.put(Player.name, score)
         timer.stop();
-        timer.getElapsedSeconds();
-    }
-
-    public boolean goThroughObstacle(){
-        // from Gameboard, if the player entity successfully went through the obstacle hole,
-        // increase the score by 1 and return true, all else false and call end game method
-        score++;
-        return true;
     }
 
     public Obstacle randomizeObstacle(){
@@ -43,6 +35,15 @@ public class GameManager{
         int index = rand.nextInt(obstacleList.size());
         return obstacleList.get(index);
     }
+
+    public void generateScore(){
+        score = (int)timer.getElapsedSeconds() + total_golden_apples.size() * 10;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
 
     // public Reward randomizeReward(){
     //  similar to above, just need reward class to be completed
