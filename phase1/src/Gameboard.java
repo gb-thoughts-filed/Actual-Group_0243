@@ -52,9 +52,9 @@ public class Gameboard {
      */
     public Obstacle randomizeObstacle() {
         List<Obstacle> obstacleList = new ArrayList<>();
-        obstacleList.add(new Obstacle(100, 50));
-        obstacleList.add(new Obstacle(50, 100));
-        obstacleList.add(new Obstacle(75, 75));
+        obstacleList.add(new Obstacle(100, 50, 160));
+        obstacleList.add(new Obstacle(50, 100, 160));
+        obstacleList.add(new Obstacle(75, 75, 160));
         Random rand = new Random();
         int index = rand.nextInt(obstacleList.size());
         return obstacleList.get(index);
