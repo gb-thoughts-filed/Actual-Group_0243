@@ -45,7 +45,12 @@ public class GamePlayer{
     }
 
     public String toString(){
-        return "GAME OVER";
+        if (deadEnd) {
+            return "GAME OVER";
+        }
+        else {
+            return "GAME ON";
+        }
     }
 
 }
