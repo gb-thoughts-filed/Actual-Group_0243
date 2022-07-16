@@ -51,8 +51,12 @@ public class Gameboard {
         return false;
     }
 
-    public void addObstacles() {
+    public void addObstacle() {
         obstacleList.add(randomizeObstacle());
+    }
+
+    public void addReward() {
+        rewardsList.add(randomizeReward());
     }
 
     public Obstacle randomizeObstacle() {
@@ -64,11 +68,19 @@ public class Gameboard {
         int index = rand.nextInt(obstacleList.size());
         return obstacleList.get(index);
     }
+
+    public Rewards randomizeReward() {
+        List<Rewards> reward = new ArrayList<>();
+        Random rand = new Random();
+        reward.add(new PoisonApple(208, rand.nextInt(this.height - 10) + 5));
+        reward.add(new GoldenApple(208, rand.nextInt(this.height - 10) + 5));
+        int index = rand.nextInt(reward.size());
+        return reward.get(index);
+    }
 }
 
 
-    // public Reward randomizeReward(){
-    //  similar to above, just need reward class to be completed
+
 
 
 
