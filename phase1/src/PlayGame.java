@@ -13,12 +13,15 @@ public class PlayGame {
         char[] option = menuOption.toCharArray();
         if(option[0] == 1) {
             //start the game
+            System.out.println(manager.getPlayer().toString());
+            runGame();
         } else if (option[0] == 2) {
-
+            System.out.println(displayLeaderboard());
         } else if (option[0] == 3) {
             // print a how to play
+            // can be just one long string
         }
-        // quit
+        System.out.println("QUIT");
     }
 
     public Map displayLeaderboard(){

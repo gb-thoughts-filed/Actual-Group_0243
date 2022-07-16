@@ -13,6 +13,7 @@ public class GameManager{
         player = new GamePlayer(UserAccount.getUsername());
         score = 0;
     }
+
     public void moveUp(){
         Double xCoord = player.getLocation().get(0);
         Double yCoord = player.getLocation().get(1);
