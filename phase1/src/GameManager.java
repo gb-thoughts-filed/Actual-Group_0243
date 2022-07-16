@@ -5,6 +5,8 @@ import java.util.Random;
 public class GameManager{
     private Stopwatch timer;
 
+    private List<GoldenApple> total_golden_apples;
+
     // private Gameplayer player;
     int score;
     public GameManager(){
