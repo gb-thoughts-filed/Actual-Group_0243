@@ -12,7 +12,7 @@ public class GamePlayer{
     public GamePlayer(String name){
         deadEnd = false;
         // this.name = username from account
-        location = new Point(0, 0);
+        location = new Point(40, 85);
 
     }
 
