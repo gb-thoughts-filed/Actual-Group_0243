@@ -34,6 +34,5 @@ public class MainTest extends Point {
 
         System.out.println("Elapsed time in seconds: "
                 + stopwatch1.getElapsedSeconds());
-
     }
 }

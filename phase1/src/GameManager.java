@@ -7,12 +7,13 @@ public class GameManager{
 
     private List<GoldenApple> total_golden_apples;
 
-    private GamePlayer player;
+    private final GamePlayer player;
     int score;
     public GameManager(){
         player = new GamePlayer(UserAccount.getUsername());
         score = 0;
     }
+
     public void moveUp(){
         Double xCoord = player.getLocation().get(0);
         Double yCoord = player.getLocation().get(1);
@@ -32,7 +33,7 @@ public class GameManager{
         // GamePlayer newPlayer = new GamePlayer(UserAccount username insert here)
         Gameboard grid = new Gameboard();
         timer.start();
-        if(grid.isTouchingBottom() || grid.isTouchingObstacle()){
+        if(grid.isTouchingBottom(this.player) || grid.isTouchingObstacle(this.player)){
             return endGame();
         }
         return true;
@@ -63,6 +64,8 @@ public class GameManager{
     public int getScore(){
         return score;
     }
+
+    public GamePlayer getPlayer() { return player; }
 
 
 

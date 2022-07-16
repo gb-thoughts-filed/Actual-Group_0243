@@ -10,8 +10,8 @@ public class Obstacle {
     private int xCoordinate;
 
     public Obstacle(int topHeight, int bottomHeight, int x) {
-        topObstacle = new Dimension(20, topHeight);
-        bottomObstacle = new Dimension(20, bottomHeight);
+        topObstacle = new Dimension(30, topHeight);
+        bottomObstacle = new Dimension(30, bottomHeight);
         xCoordinate = x;
     }
 
@@ -20,16 +20,21 @@ public class Obstacle {
         bottomObstacle.setSize(width, bottomHeight);
     }
 
-    public int getTopObstacleSize(){
+    public int getTopObstacleHeight(){
         return topObstacle.height;
     }
 
-    public int getBottomObstacleSize(){
+    public int getBottomObstacleHeight(){
         return bottomObstacle.height;
     }
+
+    public int getWidth() { return bottomObstacle.width; }
 
     public int getLocation() {
         return xCoordinate;
     }
 
+    public void moveLeft() {
+        xCoordinate -= 1;
+    }
 }
