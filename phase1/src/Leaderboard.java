@@ -7,7 +7,7 @@ public class Leaderboard {
         scoreMap = new HashMap<>();
     }
 
-    public void setScoreMap(String username, int score){
+    public void setScoreMap(){
         IntegerComparator n = new IntegerComparator(scoreMap);
         TreeMap<String, Integer> sorted = new TreeMap<String, Integer>(n);
         this.scoreMap = sorted;
