@@ -7,10 +7,12 @@ public class Obstacle {
     private Dimension topObstacle;
     private Dimension bottomObstacle;
 
-    public Obstacle(int topHeight, int bottomHeight, int width){
-        topObstacle = new Dimension(width, topHeight);
-        bottomObstacle = new Dimension(width, bottomHeight);
+    private int xCoordinate;
 
+    public Obstacle(int topHeight, int bottomHeight, int x) {
+        topObstacle = new Dimension(20, topHeight);
+        bottomObstacle = new Dimension(20, bottomHeight);
+        xCoordinate = x;
     }
 
     public void setObstacleSize(int topHeight, int bottomHeight, int width){
@@ -18,11 +20,8 @@ public class Obstacle {
         bottomObstacle.setSize(width, bottomHeight);
     }
 
-    public Set<Integer> getTopObstacleSize(){
-        Set<Integer> hwTop = new HashSet<Integer>();
-        hwTop.add(topObstacle.height);
-        hwTop.add(topObstacle.width);
-        return hwTop;
+    public int getTopObstacleSize(){
+        return topObstacle.height;
     }
 
     public Set<Integer> getBottomObstacleSize(){
@@ -31,5 +30,7 @@ public class Obstacle {
         hwBottom.add(bottomObstacle.width);
         return hwBottom;
     }
+
+    public
 
 }

@@ -11,7 +11,6 @@ public class Leaderboard {
         IntegerComparator n = new IntegerComparator(scoreMap);
         TreeMap<String, Integer> sorted = new TreeMap<String, Integer>(n);
         this.scoreMap = sorted;
-
     }
 
     public Map<String, Integer> getAllTimeScores(){
