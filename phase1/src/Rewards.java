@@ -20,6 +20,7 @@ public class Rewards {
         return coordinates;
     }
 
-
-
+    public void moveLeft() {
+        rewardLocation.x -= 1;
+    }
 }

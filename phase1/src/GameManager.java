@@ -54,6 +54,8 @@ public class GameManager{
         return score;
     }
 
+    public GamePlayer getPlayer() { return player; }
+
 
 
 

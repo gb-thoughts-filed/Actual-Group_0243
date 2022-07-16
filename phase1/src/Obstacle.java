@@ -32,4 +32,7 @@ public class Obstacle {
         return xCoordinate;
     }
 
+    public void moveLeft() {
+        xCoordinate -= 1;
+    }
 }
