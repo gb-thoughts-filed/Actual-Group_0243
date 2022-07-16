@@ -5,7 +5,6 @@ import java.util.List;
 public class GamePlayer{
     private String name;
     private Point location;
-
     private boolean deadEnd;
 
 

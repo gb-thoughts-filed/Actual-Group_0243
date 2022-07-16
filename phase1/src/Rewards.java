@@ -3,21 +3,23 @@ import java.util.List;
 public class Rewards {
 
 
-    private Point reward_location;
+    private Point rewardLocation;
+    private final Dimension dimensions = new Dimension(5, 5);
 
 
     public Rewards(double start_x, double start_y){
-
-        reward_location.x = (int) start_x;
-        reward_location.y = (int) start_y;
+        rewardLocation.x = (int) start_x;
+        rewardLocation.y = (int) start_y;
     }
 
-    public List<Double> get_Rewards_location(){
+    public List<Double> getRewardsLocation(){
 
         List<Double> coordinates = null;
-        coordinates.add((double) reward_location.x);
-        coordinates.add((double) reward_location.y);
+        coordinates.add((double) rewardLocation.x);
+        coordinates.add((double) rewardLocation.y);
         return coordinates;
     }
+
+
 
 }

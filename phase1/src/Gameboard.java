@@ -38,21 +38,23 @@ public class Gameboard {
         return playerPosition.get(1) < 0;
     }
 
+    public boolean isTouchingReward() {
+        List<Double> playerPosition = player.getLocation();
+        Double xPos = playerPosition.get(0);
+        Double yPos = playerPosition.get(1);
+        for (Rewards r : rewardsList) {
+            List<Double> rewardPosition = r.getRewardsLocation();
+            if (xPos > rewardPosition.get(0) && xPos - 20 < rewardPosition.get(0) + 5) {
+                return yPos + 10 > rewardPosition.get(1) && yPos < rewardPosition.get(1) + 5;
+            } else { return false; }
+        }
+        return false;
+    }
+
     public void addObstacles() {
         obstacleList.add(randomizeObstacle());
     }
 
-    /*
-        public boolean is_touching_reward(){
-
-            List<Double> player_located = GamePlayer.getLocation();
-            List<Integer> reward_located = Rewards.get_Rewards_location();
-
-            if (player_located.get(0) == reward_located.get(0) && player_located.get(1) == reward_located.get(1)){
-
-            }
-
-     */
     public Obstacle randomizeObstacle() {
         List<Obstacle> obstacleList = new ArrayList<>();
         obstacleList.add(new Obstacle(100, 50, 160));
