@@ -24,59 +24,69 @@ public class LoginCommand {
 
     }
 
-    public String inputCheck(String input) {
-        String output = "";
-        if (input.equals("EXIT")) { running = false; return "Exiting";}
-        else if ((!input.equals("NEW")) & lineNumber == 0) {
-            lineNumber = 4;
-        }
-        if (lineNumber == -1) {
-            output = "Enter username";
-        }
-        else if (lineNumber == 0) {
-            output = "Enter username of length between 5 and 8 inclusive. No special symbols.";
+    public int inputCheck(String input) {
+        int output = 0;
+        if (lineNumber == 0) {
+            if (input.equals("OLD")) {
+                output = 4;
+                lineNumber = 3;
+            }
+            else if (input.equals("EXIT")) {stopRunning(); }
+            else { output = 1;}
         }
         else if ((lineNumber == 1) || (lineNumber == 2)) {
-            System.out.println("1");
-            output = checkValid(input, lineNumber);
+            if (!checkValid(input, lineNumber)) {
+                output = 8;
+                lineNumber = -1;
+            } else { if (lineNumber == 1) {output = 2;} else{output = 3;} }
         }
         else if (lineNumber == 3) {
             adminCheck(input);
-            System.out.println("User " + newUsername + " created");
-            output = "Enter username";
+            output = 4;
         }
         else if (lineNumber == 4) {
             username = input;
-            output = "Enter password";
+            output = 5;
         }
         else if (lineNumber == 5) {
             password = input;
-            login(username, password);
-            output = username + "'s login times: " + system.logIn(username, password).loginHistory(LocalDateTime.now());
-            lineNumber = -2;
+            if (login(username, password)) {
+                System.out.println(username + "'s login times: " + system.logIn(username, password).loginHistory(LocalDateTime.now()));
+                output = 6;
+
+            } else {output = 8;}
+            lineNumber = -1;
         }
         lineNumber += 1;
         return output;
     }
 
-    public String login(String username, String password) {
-        return String.valueOf(system.logIn(username, password));
+
+    public boolean login(String username, String password) {
+        if (!system.checkUsername(username)) {
+            lineNumber -= 1;
+            return false;
+        }
+        else if (!system.checkPassword(username, password)) {
+            lineNumber -= 1;
+            return false;
+        }
+        return true;
     }
-    public String checkValid(String input, int number) {
-        System.out.println("here");
+    public boolean checkValid(String input, int number) {
         if (number == 1) {
             if (cred.isValidUsername(input) & !system.checkUsername(input)) {
                 newUsername = input;
-                return "Enter Password";
+                return true;
             }
-            else {lineNumber = 1; return "Invalid username";}
+            else {lineNumber -= 1; return false;}
         }
         else{
             if (cred.isValidPassword(input)) {
                 newPassword = input;
-                return "Enter ADMIN or NONE";
+                return true;
             }
-            else {lineNumber = 2; return "Invalid Password";}
+            else {lineNumber -= 1; return false;}
         }
     }
 
