@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Gameboard {
 
-    private final int width = 160;
+    private final int width = 300;
 
-    private final int height = 190;
+    private final int height = 600;
 
     private final List<Rewards> rewardsList = new ArrayList<>();
 
@@ -59,9 +59,9 @@ public class Gameboard {
 
     public Obstacle randomizeObstacle() {
         List<Obstacle> obstacleList = new ArrayList<>();
-        obstacleList.add(new Obstacle(100, 50, this.width));
-        obstacleList.add(new Obstacle(50, 100, this.width));
-        obstacleList.add(new Obstacle(75, 75, this.width));
+        obstacleList.add(new Obstacle(160, 80, this.width));
+        obstacleList.add(new Obstacle(80, 160, this.width));
+        obstacleList.add(new Obstacle(120, 120, this.width));
         Random rand = new Random();
         int index = rand.nextInt(obstacleList.size());
         return obstacleList.get(index);
@@ -70,8 +70,8 @@ public class Gameboard {
     public Rewards randomizeReward() {
         List<Rewards> reward = new ArrayList<>();
         Random rand = new Random();
-        reward.add(new PoisonApple(this.width + 48, rand.nextInt(this.height - 10) + 5));
-        reward.add(new GoldenApple(this.width + 208, rand.nextInt(this.height - 10) + 5));
+        reward.add(new PoisonApple(this.width + 70, rand.nextInt(this.height - 20) + 5));
+        reward.add(new GoldenApple(this.width + 70, rand.nextInt(this.height - 20) + 5));
         int index = rand.nextInt(reward.size());
         return reward.get(index);
     }

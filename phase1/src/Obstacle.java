@@ -10,8 +10,8 @@ public class Obstacle {
     private int xCoordinate;
 
     public Obstacle(int topHeight, int bottomHeight, int x) {
-        topObstacle = new Dimension(20, topHeight);
-        bottomObstacle = new Dimension(20, bottomHeight);
+        topObstacle = new Dimension(30, topHeight);
+        bottomObstacle = new Dimension(30, bottomHeight);
         xCoordinate = x;
     }
 
