@@ -28,6 +28,19 @@ public class Gameboard {
 
         }
     }
+    public Obstacle randomizeObstacle(){
+        List<Obstacle> obstacleList = new ArrayList<>();
+        obstacleList.add(new Obstacle(100, 50, 20));
+        obstacleList.add(new Obstacle(50, 100, 20));
+        obstacleList.add(new Obstacle(75, 75, 20));
+        Random rand = new Random();
+        int index = rand.nextInt(obstacleList.size());
+        return obstacleList.get(index);
+    }
+
+    // public Reward randomizeReward(){
+    //  similar to above, just need reward class to be completed
+
 
 }
 */
