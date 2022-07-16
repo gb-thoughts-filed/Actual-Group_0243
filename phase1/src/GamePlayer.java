@@ -7,6 +7,8 @@ public class GamePlayer{
     private Point location;
     private boolean deadEnd;
 
+    private Dimension dimensions = new Dimension(20, 10);
+
 
     public GamePlayer(String name){
         username = UserAccount.getUsername();
@@ -47,5 +49,9 @@ public class GamePlayer{
             return "GAME ON";
         }
     }
+
+    public int getWidth() { return dimensions.width; }
+
+    public int getHeight() { return dimensions.height; }
 
 }

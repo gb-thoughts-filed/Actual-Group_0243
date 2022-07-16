@@ -23,4 +23,8 @@ public class Rewards {
     public void moveLeft() {
         rewardLocation.x -= 1;
     }
+
+    public int getWidth() { return dimensions.width; }
+
+    public int getHeight() { return dimensions.height; }
 }

@@ -1,4 +1,3 @@
-import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,11 +8,11 @@ public class Gameboard {
 
     private final int height = 190;
 
-    private List<Rewards> rewardsList = new ArrayList<>();
+    private final List<Rewards> rewardsList = new ArrayList<>();
 
-    private List<Obstacle> obstacleList = new ArrayList<>();
+    private final List<Obstacle> obstacleList = new ArrayList<>();
 
-    private String player_username = UserAccount.getUsername();
+    private final String player_username = UserAccount.getUsername();
 
     public Gameboard() {
     }
@@ -21,10 +20,12 @@ public class Gameboard {
     public boolean isTouchingObstacle(GamePlayer player) {
         for (Obstacle o : obstacleList) {
             int oLocation = o.getLocation();
-            int blank = o.getBottomObstacleSize();
+            int blank = o.getBottomObstacleHeight();
             List<Double> playerPosition = player.getLocation();
-            if (20 <= oLocation && oLocation <= 40) {
-                return playerPosition.get(1) <= blank && playerPosition.get(1) + 10 >= blank + 40;
+            int width = player.getWidth();
+            int height = player.getHeight();
+            if (playerPosition.get(0) - width <= oLocation && oLocation <= playerPosition.get(0)) {
+                return playerPosition.get(1) <= blank && playerPosition.get(1) + height >= blank + 40;
             } else { return false; }
         }
         return false;
@@ -41,8 +42,8 @@ public class Gameboard {
         Double yPos = playerPosition.get(1);
         for (Rewards r : rewardsList) {
             List<Double> rewardPosition = r.getRewardsLocation();
-            if (xPos > rewardPosition.get(0) && xPos - 20 < rewardPosition.get(0) + 5) {
-                return yPos + 10 > rewardPosition.get(1) && yPos < rewardPosition.get(1) + 5;
+            if (xPos > rewardPosition.get(0) && xPos - player.getHeight() < rewardPosition.get(0) + r.getWidth()) {
+                return yPos + player.getHeight() > rewardPosition.get(1) && yPos < rewardPosition.get(1) + r.getHeight();
             } else { return false; }
         }
         return false;

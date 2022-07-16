@@ -20,13 +20,15 @@ public class Obstacle {
         bottomObstacle.setSize(width, bottomHeight);
     }
 
-    public int getTopObstacleSize(){
+    public int getTopObstacleHeight(){
         return topObstacle.height;
     }
 
-    public int getBottomObstacleSize(){
+    public int getBottomObstacleHeight(){
         return bottomObstacle.height;
     }
+
+    public int getWidth() { return bottomObstacle.width; }
 
     public int getLocation() {
         return xCoordinate;
