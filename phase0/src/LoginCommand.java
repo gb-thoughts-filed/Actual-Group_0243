@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 public class LoginCommand {
 
     private final AccountSystem system; //Account System
@@ -26,39 +27,43 @@ public class LoginCommand {
     public String inputCheck(String input) {
         String output = "";
         if (input.equals("EXIT")) { running = false; return "Exiting";}
-        else if (!input.equals("NEW")) {
+        else if ((!input.equals("NEW")) & lineNumber == 0) {
             lineNumber = 4;
         }
-        if (lineNumber == 0) {
+        if (lineNumber == -1) {
+            output = "Enter username";
+        }
+        else if (lineNumber == 0) {
             output = "Enter username of length between 5 and 8 inclusive. No special symbols.";
         }
         else if ((lineNumber == 1) || (lineNumber == 2)) {
+            System.out.println("1");
             output = checkValid(input, lineNumber);
         }
         else if (lineNumber == 3) {
             adminCheck(input);
-            output = "User " + newUsername + " created";
+            System.out.println("User " + newUsername + " created");
+            output = "Enter username";
         }
         else if (lineNumber == 4) {
             username = input;
+            output = "Enter password";
         }
         else if (lineNumber == 5) {
             password = input;
             login(username, password);
+            output = username + "'s login times: " + system.logIn(username, password).loginHistory(LocalDateTime.now());
+            lineNumber = -2;
         }
         lineNumber += 1;
         return output;
     }
 
     public String login(String username, String password) {
-        if (system.checkUsername(username)) {
-            if (system.checkPassword(username, password)) {
-                return "logged in";
-            }
-        }
-        return "error";
+        return String.valueOf(system.logIn(username, password));
     }
     public String checkValid(String input, int number) {
+        System.out.println("here");
         if (number == 1) {
             if (cred.isValidUsername(input) & !system.checkUsername(input)) {
                 newUsername = input;
