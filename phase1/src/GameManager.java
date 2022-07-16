@@ -13,31 +13,41 @@ public class GameManager{
         player = new GamePlayer(UserAccount.getUsername());
         score = 0;
     }
-
-    public void startGame(){
-        // if we don't want to make player an instance variable, call it here
-        // GamePlayer newPlayer = new GamePlayer(UserAccount username insert here)
-        timer.start();
+    public void moveUp(){
+        Double xCoord = player.getLocation().get(0);
+        Double yCoord = player.getLocation().get(1);
+        double newY = yCoord + 1.0;
+        player.setLocation(xCoord, newY);
     }
 
-    public void endGame(){
+    public void moveDown(){
+        Double xCoord = player.getLocation().get(0);
+        Double yCoord = player.getLocation().get(1);
+        double newY = yCoord - 1.0;
+        player.setLocation(xCoord, newY);
+    }
+
+    public boolean runGame(){
+        // if we don't want to make player an instance variable, call it here
+        // GamePlayer newPlayer = new GamePlayer(UserAccount username insert here)
+        Gameboard grid = new Gameboard();
+        timer.start();
+        if(grid.isTouchingBottom() || grid.isTouchingObstacle()){
+            return endGame();
+        }
+        return true;
+    }
+
+    public boolean endGame(){
         Leaderboard scoreBoard = new Leaderboard();
+        timer.stop();
+        score = (int)timer.getElapsedSeconds();
         if (!scoreBoard.updateExistingScore(player.getUsername(), score)){
             scoreBoard.addNewScore(player.getUsername(), score);
         }else{
             scoreBoard.updateExistingScore(player.getUsername(), score);
         }
-        timer.stop();
-    }
-
-    public Obstacle randomizeObstacle(){
-        List<Obstacle> obstacleList = new ArrayList<>();
-        obstacleList.add(new Obstacle(100, 50, 20));
-        obstacleList.add(new Obstacle(50, 100, 20));
-        obstacleList.add(new Obstacle(75, 75, 20));
-        Random rand = new Random();
-        int index = rand.nextInt(obstacleList.size());
-        return obstacleList.get(index);
+        return false;
     }
 
     public void updateScore(){
