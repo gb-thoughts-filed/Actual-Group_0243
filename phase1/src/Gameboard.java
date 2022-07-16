@@ -9,6 +9,8 @@ public class Gameboard {
 
     private int height = 190;
 
+    private GamePlayer player;
+
     private List<Rewards> rewardsList;
 
     private List<Obstacle> obstacleList;
@@ -16,20 +18,24 @@ public class Gameboard {
     private String player_username = UserAccount.getUsername();
 
     public Gameboard() {
-
-        GamePlayer Player = new GamePlayer(player_username);
-
+        this.player = new GamePlayer(player_username);
     }
 
     public boolean isTouchingObstacle() {
         for (Obstacle o : obstacleList) {
-            if
+            int oLocation = o.getLocation();
+            int blank = o.getBottomObstacleSize();
+            List<Double> playerPosition = player.getLocation();
+            if (20 <= oLocation && oLocation <= 40) {
+                return playerPosition.get(1) <= blank && playerPosition.get(1) + 10 >= blank + 40;
+            } else { return false; }
         }
 
 
     }
 
     public void addObstacles() {
+
 
     }
 

@@ -24,13 +24,12 @@ public class Obstacle {
         return topObstacle.height;
     }
 
-    public Set<Integer> getBottomObstacleSize(){
-        Set<Integer> hwBottom = new HashSet<Integer>();
-        hwBottom.add(bottomObstacle.height);
-        hwBottom.add(bottomObstacle.width);
-        return hwBottom;
+    public int getBottomObstacleSize(){
+        return bottomObstacle.height;
     }
 
-    public
+    public int getLocation() {
+        return xCoordinate;
+    }
 
 }
