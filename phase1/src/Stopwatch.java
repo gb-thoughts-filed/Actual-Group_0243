@@ -6,6 +6,9 @@ public class Stopwatch extends GameManager{
     public Stopwatch(){
     }
 
+    public boolean isStopWatchRunning(){
+        return stopWatchRunning;
+    }
 
     public void start() {
         this.stopWatchStartTime = System.nanoTime();

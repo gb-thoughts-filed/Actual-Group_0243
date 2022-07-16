@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDateTime;
 public class UserAccount{
-    private String username;
+    private static String username;
     private String password;
 
     protected boolean admin;
@@ -20,7 +20,7 @@ public class UserAccount{
     }
     
     public static String getUsername() {
-        return this.username;
+        return username;
     }
 
     public String getPassword() {

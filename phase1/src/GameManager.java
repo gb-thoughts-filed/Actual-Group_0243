@@ -7,10 +7,10 @@ public class GameManager{
 
     private List<GoldenApple> total_golden_apples;
 
-    // private Gameplayer player;
+    private GamePlayer player;
     int score;
     public GameManager(){
-        // player = new GamePlayer(UserAccount username here)
+        player = new GamePlayer(UserAccount.getUsername());
         score = 0;
     }
 
@@ -21,8 +21,12 @@ public class GameManager{
     }
 
     public void endGame(){
-        // Leaderboard scoreBoard = new Leaderboard();
-        // scoreboard.put(Player.name, score)
+        Leaderboard scoreBoard = new Leaderboard();
+        if (!scoreBoard.updateExistingScore(player.getUsername(), score)){
+            scoreBoard.addNewScore(player.getUsername(), score);
+        }else{
+            scoreBoard.updateExistingScore(player.getUsername(), score);
+        }
         timer.stop();
     }
 
@@ -36,7 +40,13 @@ public class GameManager{
         return obstacleList.get(index);
     }
 
-    public void generateScore(){
+    public void updateScore(){
+        while(timer.isStopWatchRunning()) {
+            score = (int)timer.getElapsedSeconds();
+        }
+    }
+
+    public void generateRewardScore(){
         score = (int)timer.getElapsedSeconds() + total_golden_apples.size() * 10;
     }
 

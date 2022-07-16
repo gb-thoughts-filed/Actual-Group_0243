@@ -3,17 +3,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GamePlayer{
-    private String name;
+    private String username;
     private Point location;
 
     private boolean deadEnd;
 
 
     public GamePlayer(String name){
+        username = UserAccount.getUsername();
         deadEnd = false;
         // this.name = username from account
         location = new Point(40, 85);
 
+    }
+
+    public String getUsername(){
+        return this.username;
     }
 
     public void setLocation(double xPos, double yPos){
