@@ -38,15 +38,6 @@ public class GamePlayer{
         return coordinates;
     }
 
-    public void moveUp(){
-        double newLocation = location.getY() + 2.0;
-        location.move(location.x, (int) newLocation);
-    }
-
-    public void moveDown(){
-        double newLocation = location.getY() - 2.0;
-        location.move(location.x, (int) newLocation);
-    }
 
     public String toString(){
         if (deadEnd) {
