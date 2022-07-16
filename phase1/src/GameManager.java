@@ -7,7 +7,7 @@ public class GameManager{
 
     private List<GoldenApple> total_golden_apples;
 
-    private GamePlayer player;
+    private final GamePlayer player;
     int score;
     public GameManager(){
         player = new GamePlayer(UserAccount.getUsername());
@@ -33,7 +33,7 @@ public class GameManager{
         // GamePlayer newPlayer = new GamePlayer(UserAccount username insert here)
         Gameboard grid = new Gameboard();
         timer.start();
-        if(grid.isTouchingBottom() || grid.isTouchingObstacle()){
+        if(grid.isTouchingBottom(this.player) || grid.isTouchingObstacle(this.player)){
             return endGame();
         }
         return true;
