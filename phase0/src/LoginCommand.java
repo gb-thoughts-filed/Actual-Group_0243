@@ -51,7 +51,6 @@ public class LoginCommand {
         else if (lineNumber == 5) {
             password = input;
             if (login(username, password)) {
-                System.out.println(username + "'s login times: " + system.logIn(username, password).loginHistory(LocalDateTime.now()));
                 output = 6;
 
             } else {output = 8;}
@@ -108,7 +107,6 @@ public class LoginCommand {
         return system;
     }
 
-    public ValidateCredentials getValidateCredentials() {
-        return cred;
-    }
+    public String getLoginUsername() {return username;}
+    public String getLoginPassword() {return password;}
 }

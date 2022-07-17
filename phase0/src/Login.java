@@ -28,6 +28,11 @@ public class Login {
             else if (line == 5) {
                 System.out.println("Enter password");
             }
+            else if (line == 6) {
+                System.out.println("Welcome" + command.getLoginUsername() +"\n" + command.getLoginUsername() +
+                                "'s login times: " + command.getAccountSystem().logIn(command.getLoginUsername(),
+                                command.getLoginPassword()).loginHistory(LocalDateTime.now()));
+            }
             else if (line == 8) {
                 System.out.println("Invalid Username or Password");
             }
